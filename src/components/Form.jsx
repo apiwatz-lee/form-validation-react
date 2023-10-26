@@ -74,7 +74,7 @@ const Form = () => {
         onSubmit={validateForm}
       >
         <h1 className="text-3xl text-center font-bold decoration-8 mb-10">
-          Form
+          Registration Form
         </h1>
         <Input
           label="Username"
