@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css";
 import { useState } from "react";
+import Input from "./Input";
 
 const Form = () => {
   const [username, setUsername] = useState("");
@@ -75,76 +76,42 @@ const Form = () => {
         <h1 className="text-3xl text-center font-bold decoration-8 mb-10">
           Form
         </h1>
-        <div className="mb-4 pb-1 flex flex-col">
-          <label> Username </label>
-          <input
-            type="text"
-            className={`border border-gray-200 rounded-md px-2 py-1 outline-none ${
-              usernameColor === "green"
-                ? `border-2 border-green-700`
-                : usernameColor === "red"
-                ? `border-2 border-red-500`
-                : null
-            }`}
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <small className={errorUsername && `text-red-500`}>
-            {errorUsername}
-          </small>
-        </div>
-        <div className="mb-4 flex flex-col">
-          <label> Email </label>
-          <input
-            type="text"
-            className={`border border-gray-200 rounded-md px-2 py-1 outline-none ${
-              emailColor === "green"
-                ? `border-2 border-green-700`
-                : emailColor === "red"
-                ? `border-2 border-red-500`
-                : null
-            }`}
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <small className={errorEmail && `text-red-500`}>{errorEmail}</small>
-        </div>
-        <div className="mb-4 flex flex-col">
-          <label> Password </label>
-          <input
-            type="password"
-            className={`border border-gray-200 rounded-md px-2 py-1 outline-none ${
-              passwordColor === "red"
-                ? `border-2 border-red-500`
-                : passwordColor === "green"
-                ? `border-2 border-green-700`
-                : null
-            }`}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <small className={errorPassword && `text-red-500`}>
-            {errorPassword}
-          </small>
-        </div>
-        <div className="mb-4 flex flex-col">
-          <label> Confirm password </label>
-          <input
-            type="password"
-            className={`border border-gray-200 rounded-md px-2 py-1 outline-none ${
-              rePasswordColor === "red"
-                ? `border-2 border-red-500`
-                : rePasswordColor === "green"
-                ? `border-2 border-green-700`
-                : null
-            }`}
-            value={rePassword}
-            onChange={(e) => setRePassword(e.target.value)}
-          />
-          <small className={errorRePassword && `text-red-500`}>
-            {errorRePassword}
-          </small>
-        </div>
+        <Input
+          label="Username"
+          name="username"
+          type="text"
+          color={usernameColor}
+          value={username}
+          onChange={setUsername}
+          error={errorUsername}
+        />
+        <Input
+          label="Email"
+          name="email"
+          type="text"
+          color={emailColor}
+          value={email}
+          onChange={setEmail}
+          error={errorEmail}
+        />
+        <Input
+          label="Password"
+          name="password"
+          type="password"
+          color={passwordColor}
+          value={password}
+          onChange={setPassword}
+          error={errorPassword}
+        />
+        <Input
+          label="Confirm password"
+          name="comfirmPassword"
+          type="password"
+          color={rePasswordColor}
+          value={rePassword}
+          onChange={setRePassword}
+          error={errorRePassword}
+        />
         <button
           type="submit"
           className="border bg-blue-500 cursor-pointer text-white w-[100%] mt-2 border-blue-500 p-[10px] text-base"
